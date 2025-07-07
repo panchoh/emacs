@@ -39,7 +39,32 @@
   :demand t)
 
 ;; Expands to: (elpaca evil (use-package evil :demand t))
-(use-package evil :ensure t :demand t)
+;; (use-package evil :ensure t :demand t)
+(use-package evil
+  :ensure t
+  :demand t
+  :init
+  (setq evil-inhibit-esc t
+        evil-want-keybinding nil
+        evil-want-C-h-delete t
+        evil-want-C-u-delete t
+        evil-want-C-u-scroll t
+        evil-want-fine-undo t
+        evil-undo-system 'undo-redo
+        evil-shift-width 4
+        evil-split-window-below t
+        evil-vsplit-window-right t)
+  :config
+  (evil-mode 1))
+
+(use-package evil-collection
+  :after evil
+  :ensure t
+  :init
+  ;; It has to be defined before evil-colllection
+  (setq evil-collection-setup-minibuffer t)
+  :config
+  (evil-collection-init))
 
 ;;Turns off elpaca-use-package-mode current declaration
 ;;Note this will cause evaluate the declaration immediately. It is not deferred.
