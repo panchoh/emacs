@@ -19,6 +19,14 @@
 ;;
 ;;; Code:
 
+;; https://github.com/progfolio/elpaca/wiki/Usage-with-Nix
+(defun my/nixos-p ()
+  "Return t if operating system is NixOS, nil otherwise."
+  (string-match-p "NixOS" (shell-command-to-string "uname -v")))
+
+;; Run this before the elpaca.el is loaded. Before the installer in your init.el is a good spot.
+(when (my/nixos-p) (setq elpaca-core-date '(20250706)))
+
 
 ;; Example Elpaca configuration -*- lexical-binding: t; -*-
 (defvar elpaca-installer-version 0.11)
