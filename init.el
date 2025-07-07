@@ -34,7 +34,9 @@
 ;;e.g. a package which adds a use-package key word,
 ;;use the :wait recipe keyword to block until that package is installed/configured.
 ;;For example:
-;;(use-package general :ensure (:wait t) :demand t)
+(use-package general
+  :ensure (:wait t)
+  :demand t)
 
 ;; Expands to: (elpaca evil (use-package evil :demand t))
 (use-package evil :ensure t :demand t)
