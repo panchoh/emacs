@@ -60,9 +60,6 @@
 (add-hook 'after-init-hook #'elpaca-process-queues)
 (elpaca `(,@elpaca-order))
 
-;; Uncomment for systems which cannot create symlinks:
-;; (elpaca-no-symlink-mode)
-
 ;; Install a package via the elpaca macro
 ;; See the "recipes" section of the manual for more details.
 
