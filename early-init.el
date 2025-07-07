@@ -30,5 +30,7 @@
 (scroll-bar-mode -1)
 (tooltip-mode -1)
 
+(setq package-enable-at-startup nil)
+
 (provide 'early-init)
 ;;; early-init.el ends here
